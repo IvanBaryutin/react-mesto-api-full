@@ -7,7 +7,8 @@ export class Api {
   _checkToken = (headers) => {
     const token = localStorage.getItem('jwt');
     if (token) {
-      this._headers['authorization'] = `Bearer ${localStorage.getItem('token')}`
+      this._headers['authorization'] = `Bearer ${localStorage.getItem('token')}`;
+      console.log(this._headers['authorization'] );
     }
     return headers;
   }
@@ -27,7 +28,11 @@ export class Api {
       method: 'GET',
       headers: this._checkToken(this._headers),
     })
-      .then((res) => this._checkRequestResult(res))
+      // .then((res) => this._checkRequestResult(res))
+      .then((res) => {
+        this._checkRequestResult(res);
+        console.log(res);
+      })
   }
 
   getInitialCards() {
