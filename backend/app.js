@@ -43,6 +43,8 @@ app.use(function( req, res, next ) {
   if (method === 'OPTIONS') {
     // разрешаем кросс-доменные запросы любых типов (по умолчанию)
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+    // разрешаем кросс-доменные запросы с этими заголовками
+    res.header('Access-Control-Allow-Headers', requestHeaders);
     // завершаем обработку запроса и возвращаем результат клиенту
     console.log(res.header);
     return res.end();
