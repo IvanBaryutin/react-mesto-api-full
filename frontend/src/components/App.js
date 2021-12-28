@@ -62,6 +62,7 @@ function App() {
         if (res){
           // авторизуем пользователя
           //console.log('logged');
+          console.log(res.data);
           setCurrentUserData(res.data);
           setLoggedIn(true);
           history.push("/");
