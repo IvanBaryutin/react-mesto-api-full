@@ -128,7 +128,8 @@ module.exports.getCurrentUser = (req, res, next) => {
     .orFail(() => {
       next(new NotFoundError('Пользователь по указанному _id не найден.'));
     })
-    .then((user) => res.send({ data: user }))
+    // .then((user) => res.send({ data: user }))
+    .then((user) => res.send({ user }))
     // данные не записались, вернём ошибку
     .catch((err) => {
       if (err.name === 'CastError') {
