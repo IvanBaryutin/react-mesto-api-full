@@ -31,6 +31,9 @@ export const  authorize = (email, password) => {
     body: JSON.stringify({email, password})
   })
     .then((res) => checkRequestResult(res))
+    .then((data) => {
+      console.log(data);
+    })
 }
 
 export const  getContent = (token) => {
