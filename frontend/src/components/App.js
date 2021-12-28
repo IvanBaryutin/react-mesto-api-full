@@ -43,7 +43,7 @@ function App() {
       // api.getInitialCards(),
     ])
       .then(([userData, initialCardsData]) => {
-        console.log(2);
+        console.log(userData.name);
         setCurrentUser(userData);
         //setCards(initialCardsData);
       })
