@@ -44,7 +44,7 @@ function App() {
     ])
       .then(([userData, initialCardsData]) => {
         console.log(userData.data);
-        setCurrentUser(userData);
+        setCurrentUser(userData.data);
         //setCards(initialCardsData);
       })
       .catch((err) => {
