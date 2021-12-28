@@ -33,7 +33,8 @@ export class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'GET',
-      headers: this._headers,
+      // headers: this._headers,
+      headers: this._checkToken(this._headers),
     })
       .then((res) => this._checkRequestResult(res))
   }
@@ -42,7 +43,8 @@ export class Api {
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      // headers: this._headers,
+      headers: this._checkToken(this._headers),
       body: JSON.stringify({
         name: user.name,
         about: user.about
@@ -55,7 +57,8 @@ export class Api {
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
-      headers: this._headers,
+      // headers: this._headers,
+      headers: this._checkToken(this._headers),
       body: JSON.stringify({
         name: card.name,
         link: card.link
@@ -68,7 +71,8 @@ export class Api {
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: this._headers
+      // headers: this._headers
+      headers: this._checkToken(this._headers),
     })
       .then((res) => this._checkRequestResult(res))
   }
@@ -77,7 +81,8 @@ export class Api {
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      // headers: this._headers,
+      headers: this._checkToken(this._headers),
       body: JSON.stringify({
         avatar: avatar
       })
@@ -89,7 +94,8 @@ export class Api {
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: 'PUT',
-      headers: this._headers
+      // headers: this._headers
+      headers: this._checkToken(this._headers),
     })
       .then((res) => this._checkRequestResult(res))
   }
@@ -98,7 +104,8 @@ export class Api {
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: 'DELETE',
-      headers: this._headers
+      // headers: this._headers
+      headers: this._checkToken(this._headers)
     })
       .then((res) => this._checkRequestResult(res))
   }
