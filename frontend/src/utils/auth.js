@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'http://api.the-mesto.students.nomoredomains.rocks';
 
 
 const checkRequestResult = (res) => {
