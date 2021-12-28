@@ -14,6 +14,7 @@ export class Api {
   }
 
   _checkRequestResult = (res) => {
+    console.log(res);
     if (res.ok) {
       return res.json();
     }
@@ -23,7 +24,6 @@ export class Api {
 
 
   getUserInfo = () => {
-    // console.log(this._baseUrl);
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: this._checkToken(this._headers),

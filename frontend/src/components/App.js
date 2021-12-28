@@ -40,7 +40,7 @@ function App() {
     // Загружаем первоначальную информация с сервера
     Promise.all([
       api.getUserInfo(),
-      api.getInitialCards(),
+      // api.getInitialCards(),
     ])
       .then(([userData, initialCardsData]) => {
         setCurrentUser(userData);
