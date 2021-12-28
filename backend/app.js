@@ -27,6 +27,9 @@ app.use(express.json());
 //
 app.use(function( req, res, next ) {
   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
+  // сохраняем список заголовков исходного запроса
+  const requestHeaders = req.headers['access-control-request-headers'];
+
   // проверяем, что источник запроса есть среди разрешённых
   if (allowedCors.includes(origin)) {
     console.log('Источник есть в списке');
