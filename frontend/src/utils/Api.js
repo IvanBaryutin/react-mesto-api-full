@@ -7,7 +7,7 @@ export class Api {
   _checkToken = (headers) => {
     const token = localStorage.getItem('jwt');
     if (token) {
-      this._headers['authorization'] = `Bearer ${localStorage.getItem('token')}`;
+      this._headers['authorization'] = `Bearer ${localStorage.getItem('jwt')}`;
       console.log(this._headers['authorization'] );
     }
     return headers;
