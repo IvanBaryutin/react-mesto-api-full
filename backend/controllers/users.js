@@ -108,7 +108,8 @@ module.exports.updateAvatar = (req, res, next) => {
     .orFail(() => {
       next(new NotFoundError('Пользователь по указанному _id не найден.'));
     })
-    .then((user) => res.send({ data: user }))
+    // .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       switch (err.name) {
         case 'CastError':
@@ -129,7 +130,7 @@ module.exports.getCurrentUser = (req, res, next) => {
       next(new NotFoundError('Пользователь по указанному _id не найден.'));
     })
     // .then((user) => res.send({ data: user }))
-    .then((user) => res.send({ user }))
+    .then((user) => res.send({ data: user }))
     // данные не записались, вернём ошибку
     .catch((err) => {
       if (err.name === 'CastError') {

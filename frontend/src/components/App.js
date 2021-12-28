@@ -43,10 +43,8 @@ function App() {
       // api.getInitialCards(),
     ])
       .then(([userData, initialCardsData]) => {
-        console.log(userData);
-        console.log(userData.data);
-        setCurrentUser(userData.data);
-        //setCards(initialCardsData);
+        // setCurrentUser(userData.data);
+        setCards(initialCardsData);
       })
       .catch((err) => {
         // попадаем сюда, если один из промисов завершится ошибкой
