@@ -14,8 +14,8 @@ export class Api {
   }
 
   _checkRequestResult = (res) => {
-    console.log(res);
     if (res.ok) {
+      console.log(1);
       return res.json();
     }
     // если ошибка, отклоняем промис
