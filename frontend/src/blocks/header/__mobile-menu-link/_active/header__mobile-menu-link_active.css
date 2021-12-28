@@ -1,0 +1,5 @@
+.header__mobile-menu-link_active{
+  background-image: url('/src/images/CloseIcon.svg');
+  background-repeat: no-repeat;
+  width: 20px;;
+}

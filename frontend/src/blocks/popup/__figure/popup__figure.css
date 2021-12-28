@@ -1,0 +1,7 @@
+.popup__figure{
+  max-width: 75vw;
+  top: 15vh;
+  position: relative;
+  display: inline-block;
+
+}

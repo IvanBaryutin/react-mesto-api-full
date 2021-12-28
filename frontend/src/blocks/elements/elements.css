@@ -1,0 +1,31 @@
+.elements{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 282px);
+  justify-content: center;
+  gap: 17px 17px;
+
+}
+
+@media screen and (max-width: 920px) {
+  .elements{
+    grid-template-columns: repeat(auto-fit, 252px);
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .elements{
+    grid-template-columns: repeat(auto-fit, 282px);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .elements{
+    grid-template-columns: repeat(auto-fit, 252px);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .elements{
+    grid-template-columns: repeat(auto-fit, 282px);
+  }
+}

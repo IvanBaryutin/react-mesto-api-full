@@ -1,0 +1,12 @@
+.header__mobile-menu{
+  color: #fff;
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 470px) {
+  .header__mobile-menu{
+    display: block;
+  }
+}

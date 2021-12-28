@@ -1,0 +1,17 @@
+.header__mobile-menu-link{
+  color: #fff;
+  display: none;
+  width: 24px;
+  height: 22px;
+  margin: 0 30px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg"><line y1="1.5" x2="24" y2="1.5" stroke="white" stroke-width="3"/><line y1="10.5" x2="24" y2="10.5" stroke="white" stroke-width="3"/><line y1="19.5" x2="24" y2="19.5" stroke="white" stroke-width="3"/></svg>');
+}
+
+@media screen and (max-width: 475px) {
+  .header__mobile-menu-link{
+    display: block;
+  }
+}

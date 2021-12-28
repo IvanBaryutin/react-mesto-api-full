@@ -1,0 +1,23 @@
+.header__login-link{
+  border:none;
+  background: none;
+  color: #fff;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 5px 0px 0px 24px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.header__login-link:hover{
+  color: #a9a9a9;
+}
+
+@media screen and (max-width: 475px) {
+  .header__login-link{
+    margin: 9px 0px
+  }
+
+
+}

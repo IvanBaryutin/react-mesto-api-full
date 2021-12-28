@@ -1,0 +1,18 @@
+.form__text-input{
+  border: none;
+  color: #000;
+  width: 100%;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 15px 5px 10px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+
+}
+
+.form__text-input:focus {
+  outline: none;
+}
+

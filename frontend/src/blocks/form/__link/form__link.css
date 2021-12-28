@@ -1,0 +1,13 @@
+.form__link{
+  display: block;
+  color: #fff;
+  margin: 15px 0px 0px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@media screen and (max-width: 400px) {
+  .form__link{
+    margin: 20px 0px 0px;
+  }
+}
