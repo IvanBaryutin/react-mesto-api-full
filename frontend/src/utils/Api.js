@@ -4,7 +4,13 @@ export class Api {
     this._headers = options.headers;
   }
 
-
+  _checkToken = (headers) => {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      this._headers['authorization'] = `Bearer ${localStorage.getItem('token')}`
+    }
+    return headers;
+  }
 
   _checkRequestResult = (res) => {
     if (res.ok) {
@@ -19,7 +25,7 @@ export class Api {
     // console.log(this._baseUrl);
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
-      headers: this._headers,
+      headers: this._checkToken(this._headers),
     })
       .then((res) => this._checkRequestResult(res))
   }
