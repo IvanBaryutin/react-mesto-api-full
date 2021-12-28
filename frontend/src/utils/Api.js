@@ -28,11 +28,7 @@ export class Api {
       method: 'GET',
       headers: this._checkToken(this._headers),
     })
-      // .then((res) => this._checkRequestResult(res))
-      .then((res) => {
-        this._checkRequestResult(res);
-        console.log(res);
-      })
+      .then((res) => this._checkRequestResult(res))
   }
 
   getInitialCards() {
