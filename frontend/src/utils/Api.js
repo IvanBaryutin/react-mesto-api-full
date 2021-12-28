@@ -16,6 +16,7 @@ export class Api {
 
 
   getUserInfo = () => {
+    // console.log(this._baseUrl);
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: this._headers,
@@ -104,7 +105,7 @@ export class Api {
 }
 
 const api = new Api({
-  baseUrl: 'api.the-mesto.students.nomoredomains.rocks',
+  baseUrl: 'http://api.the-mesto.students.nomoredomains.rocks',
   headers: {
     // authorization: '1e5c33de-1f37-4db9-b61a-be6eb6c35223',
     'Access-Control-Allow-Origin': 'origin-list',

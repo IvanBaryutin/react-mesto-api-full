@@ -32,7 +32,6 @@ app.use(function( req, res, next ) {
 
   // проверяем, что источник запроса есть среди разрешённых
   if (allowedCors.includes(origin)) {
-    console.log('Источник есть в списке');
     // устанавливаем заголовок, который разрешает браузеру запросы с этого источника
     res.header('Access-Control-Allow-Origin', origin);
   }
@@ -49,7 +48,6 @@ app.use(function( req, res, next ) {
     // разрешаем кросс-доменные запросы с этими заголовками
     res.header('Access-Control-Allow-Headers', requestHeaders);
     // завершаем обработку запроса и возвращаем результат клиенту
-    console.log(res.header);
     return res.end();
   }
 
