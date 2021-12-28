@@ -107,8 +107,7 @@ const api = new Api({
   baseUrl: 'api.the-mesto.students.nomoredomains.rocks',
   headers: {
     // authorization: '1e5c33de-1f37-4db9-b61a-be6eb6c35223',
-    //'Content-Type': 'application/json',
-    // 'Access-Control-Allow-Origin': 'origin-list'
+    'Access-Control-Allow-Origin': 'origin-list',
   }
 });
 
