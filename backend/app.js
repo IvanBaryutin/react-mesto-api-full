@@ -1,6 +1,6 @@
 require('dotenv').config();
-console.log(process.env.NODE_ENV); // production
-console.log(process.env.JWT_SECRET);
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const express = require('express');
 
 const mongoose = require('mongoose');
