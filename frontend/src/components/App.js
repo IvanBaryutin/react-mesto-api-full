@@ -40,11 +40,12 @@ function App() {
     // Загружаем первоначальную информация с сервера
     Promise.all([
       api.getUserInfo(),
-      // api.getInitialCards(),
+      api.getInitialCards(),
     ])
       .then(([userData, initialCardsData]) => {
+        console.log(initialCardsData);
         setCurrentUser(userData.data);
-        // setCards(initialCardsData);
+        setCards(initialCardsData.data);
       })
       .catch((err) => {
         // попадаем сюда, если один из промисов завершится ошибкой
@@ -55,14 +56,11 @@ function App() {
   useEffect(() => {
     // если у пользователя есть токен в localStorage, проверим валидность токена
     const jwt = localStorage.getItem('jwt');
-    //console.log(jwt);
     if (jwt){
       // проверим токен
       Auth.getContent(jwt).then((res) => {
         if (res){
           // авторизуем пользователя
-          //console.log('logged');
-          console.log(res.data);
           setCurrentUserData(res.data);
           setLoggedIn(true);
           history.push("/");
@@ -96,6 +94,7 @@ function App() {
   }
 
   function handleCardDelete(card) {
+    console.log('handleCardDelete');
     api.deleteCard(card._id)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== card._id));
@@ -113,6 +112,7 @@ function App() {
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, !isLiked)
     .then((newCard) => {
+      console.log(newCard);
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
     })
     .catch((err) => {
@@ -136,9 +136,10 @@ function App() {
   }
 
   function handleUpdateUser(userData) {
+    console.log('handleUpdateUser');
     api.setUserInfo(userData)
       .then(res => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -147,9 +148,10 @@ function App() {
   }
 
   function handleUpdateAvatar(userData) {
+    console.log('handleUpdateAvatar');
     api.updateAvatar(userData)
       .then(res => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -158,6 +160,7 @@ function App() {
   }
 
   function handleAddPlaceSubmit(cardData) {
+    console.log('handleAddPlaceSubmit');
     api.addCard(cardData)
       .then(res => {
         setCards([res, ...cards]);
@@ -169,6 +172,7 @@ function App() {
   }
 
   function handleLogin(email) {
+    console.log('handleLogin');
     setLoggedIn(true);
     setCurrentUserData({email: email});
   }
@@ -184,6 +188,7 @@ function App() {
   }
 
   function handleSignOut() {
+    console.log('handleSignOut');
     localStorage.removeItem('jwt');
     setLoggedIn(false);
     setCurrentUserData({email: ''});

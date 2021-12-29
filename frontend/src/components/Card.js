@@ -7,7 +7,8 @@ function Card(props) {
   // Подписываемся на контекст CurrentUserContext
   const currentUser = React.useContext(CurrentUserContext);
   // Определяем, являемся ли мы владельцем текущей карточки
-  const isOwn = props.card.owner._id === currentUser._id;
+  // const isOwn = props.card.owner._id === currentUser._id;
+  const isOwn = props.card.owner === currentUser._id;
 
   let deleteButton;
   deleteButton = (isOwn) ? <button type="button" onClick={handleCardDelete} className="element__delete-icon" aria-label="Удалить" ></button> : ""

@@ -6,7 +6,8 @@ const NotFoundError = require('../errors/404');
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .then((card) => res.status(200).send({ data: card }))
+    // .then((card) => res.status(200).send({ data: card }))
+    .then((card) => res.status(200).send({ card }))
     // данные не записались, вернём ошибку
     .catch((err) => next(err));
 };
@@ -17,7 +18,8 @@ module.exports.createCard = (req, res, next) => {
 
   Card.create({ name, link, owner })
     // вернём записанные в базу данные
-    .then((card) => res.status(200).send({ data: card }))
+    // .then((card) => res.status(200).send({ data: card }))
+    .then((card) => res.status(200).send({ card }))
     // данные не записались, вернём ошибку
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -62,7 +64,8 @@ module.exports.likeCard = (req, res, next) => {
     .orFail(() => {
       next(new NotFoundError('Передан несуществующий _id карточки.'));
     })
-    .then((card) => res.status(200).send({ data: card }))
+    // .then((card) => res.status(200).send({ data: card }))
+    .then((card) => res.status(200).send({ card }))
     .catch((err) => {
       switch (err.name) {
         case 'CastError':
@@ -87,7 +90,8 @@ module.exports.unlikeCard = (req, res, next) => {
       next(new NotFoundError('Передан несуществующий _id карточки.'));
     })
     // вернём записанные в базу данные
-    .then((card) => res.send({ data: card }))
+    // .then((card) => res.send({ data: card }))
+    .then((card) => res.send({ card }))
     // данные не записались, вернём ошибку
     .catch((err) => {
       switch (err.name) {
