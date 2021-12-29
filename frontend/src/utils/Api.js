@@ -90,7 +90,6 @@ export class Api {
   }
 
   setLike = (cardId) => {
-    console.log('setLike');
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
@@ -101,7 +100,6 @@ export class Api {
   }
 
   unsetLike = (cardId) => {
-    console.log('unsetLike');
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
@@ -119,7 +117,7 @@ export class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://api.the-mesto.students.nomoredomains.rocks',
+  baseUrl: 'https://api.the-mesto.students.nomoredomains.rocks',
   headers: {
     // authorization: '1e5c33de-1f37-4db9-b61a-be6eb6c35223',
     'Access-Control-Allow-Origin': 'origin-list',
