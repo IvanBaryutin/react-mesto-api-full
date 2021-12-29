@@ -55,7 +55,8 @@ module.exports.getUserById = (req, res, next) => {
     .orFail(() => {
       next(new NotFoundError('Передан несуществующий _id пользователя.'));
     })
-    .then((user) => res.status(200).send({ data: user }))
+    // .then((user) => res.status(200).send({ data: user }))
+    .then((user) => res.status(200).send({ user }))
     // данные не записались, вернём ошибку
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -68,7 +69,8 @@ module.exports.getUserById = (req, res, next) => {
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
-    .then((user) => res.status(200).send({ data: user }))
+    // .then((user) => res.status(200).send({ data: user }))
+    .then((user) => res.status(200).send({ user }))
     // данные не записались, вернём ошибку
     .catch((err) => next(err));
 };
@@ -86,7 +88,8 @@ module.exports.updateUserInfo = (req, res, next) => {
     .orFail(() => {
       next(new NotFoundError('Пользователь по указанному _id не найден.'));
     })
-    .then((user) => res.send({ data: user }))
+    // .then((user) => res.send({ data: user }))
+    .then((user) => res.send({ user }))
     .catch((err) => {
       switch (err.name) {
         case 'CastError':
@@ -108,7 +111,8 @@ module.exports.updateAvatar = (req, res, next) => {
     .orFail(() => {
       next(new NotFoundError('Пользователь по указанному _id не найден.'));
     })
-    .then((user) => res.send({ data: user }))
+    // .then((user) => res.send({ data: user }))
+    .then((user) => res.send({ user }))
     .catch((err) => {
       switch (err.name) {
         case 'CastError':
@@ -129,7 +133,7 @@ module.exports.getCurrentUser = (req, res, next) => {
       next(new NotFoundError('Пользователь по указанному _id не найден.'));
     })
     // .then((user) => res.send({ data: user }))
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send({ user }))
     // данные не записались, вернём ошибку
     .catch((err) => {
       if (err.name === 'CastError') {

@@ -45,7 +45,7 @@ function App() {
       .then(([userData, initialCardsData]) => {
         console.log(initialCardsData);
         setCurrentUser(userData.data);
-        setCards(initialCardsData.data);
+        //setCards(initialCardsData);
       })
       .catch((err) => {
         // попадаем сюда, если один из промисов завершится ошибкой
