@@ -43,16 +43,14 @@ function App() {
       api.getInitialCards(),
     ])
       .then(([userData, initialCardsData]) => {
-        //console.log(initialCardsData);
-        console.log(userData);
         setCurrentUser(userData);
-        //setCards(initialCardsData);
+        setCards(initialCardsData);
       })
       .catch((err) => {
         // попадаем сюда, если один из промисов завершится ошибкой
         console.log(err);
       });
-  }, []);
+  }, [loggedIn]);
 
   useEffect(() => {
     // если у пользователя есть токен в localStorage, проверим валидность токена
@@ -95,7 +93,6 @@ function App() {
   }
 
   function handleCardDelete(card) {
-    console.log('handleCardDelete');
     api.deleteCard(card._id)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== card._id));
@@ -108,18 +105,17 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
-
+    //const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
+    console.log(isLiked);
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, !isLiked)
     .then((newCard) => {
-      console.log(newCard);
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
     })
     .catch((err) => {
       console.log(`Ошибка ${err}`)
     });
-
   };
 
   function handleOpenDeletePopup(card) {
@@ -137,7 +133,6 @@ function App() {
   }
 
   function handleUpdateUser(userData) {
-    console.log('handleUpdateUser');
     api.setUserInfo(userData)
       .then(res => {
         setCurrentUser(res);
@@ -149,7 +144,6 @@ function App() {
   }
 
   function handleUpdateAvatar(userData) {
-    console.log('handleUpdateAvatar');
     api.updateAvatar(userData)
       .then(res => {
         setCurrentUser(res);
@@ -161,7 +155,6 @@ function App() {
   }
 
   function handleAddPlaceSubmit(cardData) {
-    console.log('handleAddPlaceSubmit');
     api.addCard(cardData)
       .then(res => {
         setCards([res, ...cards]);
@@ -173,7 +166,6 @@ function App() {
   }
 
   function handleLogin(email) {
-    console.log('handleLogin');
     setLoggedIn(true);
     setCurrentUserData({email: email});
   }
@@ -189,7 +181,6 @@ function App() {
   }
 
   function handleSignOut() {
-    console.log('handleSignOut');
     localStorage.removeItem('jwt');
     setLoggedIn(false);
     setCurrentUserData({email: ''});

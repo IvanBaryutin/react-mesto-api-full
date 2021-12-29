@@ -8,7 +8,6 @@ export class Api {
     const token = localStorage.getItem('jwt');
     if (token) {
       this._headers['authorization'] = `Bearer ${localStorage.getItem('jwt')}`;
-      console.log(this._headers['authorization'] );
     }
     return headers;
   }
@@ -91,6 +90,7 @@ export class Api {
   }
 
   setLike = (cardId) => {
+    console.log('setLike');
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
@@ -101,6 +101,7 @@ export class Api {
   }
 
   unsetLike = (cardId) => {
+    console.log('unsetLike');
     this._headers['Content-Type'] = 'application/json';
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
