@@ -43,8 +43,9 @@ function App() {
       api.getInitialCards(),
     ])
       .then(([userData, initialCardsData]) => {
-        console.log(initialCardsData);
-        setCurrentUser(userData.data);
+        //console.log(initialCardsData);
+        console.log(userData);
+        setCurrentUser(userData);
         //setCards(initialCardsData);
       })
       .catch((err) => {
@@ -61,7 +62,7 @@ function App() {
       Auth.getContent(jwt).then((res) => {
         if (res){
           // авторизуем пользователя
-          setCurrentUserData(res.data);
+          setCurrentUserData(res);
           setLoggedIn(true);
           history.push("/");
         }
@@ -139,7 +140,7 @@ function App() {
     console.log('handleUpdateUser');
     api.setUserInfo(userData)
       .then(res => {
-        setCurrentUser(res.data);
+        setCurrentUser(res);
         closeAllPopups();
       })
       .catch((err) => {
@@ -151,7 +152,7 @@ function App() {
     console.log('handleUpdateAvatar');
     api.updateAvatar(userData)
       .then(res => {
-        setCurrentUser(res.data);
+        setCurrentUser(res);
         closeAllPopups();
       })
       .catch((err) => {
